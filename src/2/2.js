@@ -218,7 +218,10 @@ function getSumVars(input, targetSum){
     }
 }
 
+
+console.time("1");
 input = mergeSort(input);
 let outputArr = getSumVars(input, 2020);
 let output = outputArr[0] * outputArr[1] * outputArr[2];
+console.timeEnd("1");
 console.log(output, outputArr);
