@@ -1,2 +1,0 @@
-put[j] > targetSum)
-            //     break;
