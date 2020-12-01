@@ -206,22 +206,26 @@ let input = [
 function getSumVars(input, targetSum){
     for(let i = 0; i < input.length; i++){
 
-        let slicedInputJ = input.slice(i+1, input.length);
-        for(let j = 0; j < slicedInputJ.length; j++){
-            
-            let slicedInputK = input.slice(j+1, input.length);
-            for(let k = 0; k < slicedInputK.length; k++){
-                if(input[i]+slicedInputJ[j]+slicedInputK[k] === targetSum)
-                    return [input[i], slicedInputJ[j], slicedInputK[k]];
+        for(let j = i+1; j < input.length; j++){
+            let sumJ = input[i]+input[j];
+            if(sumJ > targetSum)
+                break;
+
+            for(let k = j+1; k < input.length; k++){
+                let sumK = input[i]+input[j]+input[k];
+                if(sumK > targetSum)
+                    break;
+                if(sumK === targetSum)
+                    return [input[i], input[j], input[k]];
             }
         }
     }
 }
 
 
-console.time("1");
+console.time("time");
 input = mergeSort(input);
 let outputArr = getSumVars(input, 2020);
 let output = outputArr[0] * outputArr[1] * outputArr[2];
-console.timeEnd("1");
+console.timeEnd("time");
 console.log(output, outputArr);
