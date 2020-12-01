@@ -205,9 +205,10 @@ let input = [
 
 function getSumVars(input, targetSum){
     for(let i = 0; i < input.length; i++){
-        for(let j = 0; j < input.length; j++){
-            if(input[i]+input[j] === targetSum)
-                return [input[i], input[j]];
+        let slicedInput = input.slice(i+1, input.length);
+        for(let j = 0; j < slicedInput.length; j++){
+            if(input[i]+slicedInput[j] === targetSum)
+                return [input[i], slicedInput[j]];
         }
     }
 }
