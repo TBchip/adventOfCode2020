@@ -18,7 +18,6 @@ function parse_input(input){
 let output = 0;
 for(let i = 0; i < input.length; i++){
     let target = parse_input(input[i]);
-    let a = "asdf";
     let occurences = target[3].split(target[2]).length - 1;
 
     if(target[0] <= occurences && occurences <= target[1]){
