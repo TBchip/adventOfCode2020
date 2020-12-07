@@ -37,4 +37,18 @@ function parseInput(input){
     return output;
 }
 
+function eventuallyIncludesBag(input, bagName){
+    if(input[bagName]["containedIn"] === [])
+        return [bagName];
+    
+    let bags = [bagName];
+    for(let i = 0; i < input[bagName]["containedIn"].length; i++)
+        bags.push(...eventuallyIncludesBag(input, input[bagName]["containedIn"][i]));
+
+    bags = [...new Set(bags)];
+    return bags;
+}
+
 input = parseInput(input);
+// -1 because the initial gold bag shouldnt count
+console.log(eventuallyIncludesBag(input, "shinygold").length - 1);
