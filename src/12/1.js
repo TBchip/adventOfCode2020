@@ -1,6 +1,6 @@
 let input = require("./input.js");
 
-function clambAnlge(angle){
+function clambAngle(angle){
     while(angle < 0){
         angle += 360;
     }
@@ -48,7 +48,7 @@ function parseInputArr(input){
         else if(e[0] === "E" || e[0] === "W")
             newInput.push( ["X", e[0] === "E" ? Number(e.slice(1)) : -Number(e.slice(1))] );
         else if(e[0] === "L" || e[0] === "R")
-            newInput.push( ["R", e[0] === "R" ? Number(e.slice(1)) : -Number(e.slice(1))] );
+            newInput.push( ["R", clambAngle(e[0] === "R" ? Number(e.slice(1)) : -Number(e.slice(1)))] );
         else
             newInput.push( ["F", Number(e.slice(1))] );
     });
