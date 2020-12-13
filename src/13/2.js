@@ -1,1 +1,0 @@
-let input = require("./input2.js");
